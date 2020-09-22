@@ -12,7 +12,7 @@ namespace Assignment1
 
         public static string GetOnesComplementOrNull(string num)
         {
-            string binaryIdentifier = num.Substring(0, 2);
+            char[] binaryIdentifier = num.ToCharArray(0, 1);
 
             if (!binaryIdentifier.Equals("0b"))
             {
@@ -20,11 +20,11 @@ namespace Assignment1
             }
 
             char[] binaryNumber = num.ToCharArray(2, num.Length - 2);
-            string output = binaryIdentifier;
+            string output = "0b";
 
-            foreach(var c in binaryNumber)
+            foreach (var c in binaryNumber)
             {
-                if(c == '0')
+                if (c == '0')
                 {
                     output += "1";
                 }
