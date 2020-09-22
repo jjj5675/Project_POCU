@@ -12,11 +12,17 @@ namespace Assignment1
 
         public static string GetOnesComplementOrNull(string num)
         {
-            char[] binaryIdentifier = num.ToCharArray(0, 1);
-
-            if (!binaryIdentifier.Equals("0b"))
+            if (num.Length < 3)
             {
                 return null;
+            }
+
+            foreach (var s in num)
+            {
+                if (s != '0' && s != '1' && s != 'b')
+                {
+                    return null;
+                }
             }
 
             char[] binaryNumber = num.ToCharArray(2, num.Length - 2);
@@ -39,7 +45,49 @@ namespace Assignment1
 
         public static string GetTwosComplementOrNull(string num)
         {
-            return null;
+            if (num.Length < 3)
+            {
+                return null;
+            }
+
+            foreach (var n in num)
+            {
+                if (n != '0' && n != '1' && n != 'b')
+                {
+                    return null;
+                }
+            }
+
+            char[] binaryNumber = num.ToCharArray(2, num.Length - 2);
+            string output = string.Empty;
+
+            for (int k = 0; k < binaryNumber.Length; k++)
+            {
+                if (binaryNumber[k] == '0')
+                {
+                    binaryNumber[k] = '1';
+                }
+                else
+                {
+                    binaryNumber[k] = '0';
+                }
+            }
+
+            int i = binaryNumber.Length - 1;
+            int s = 1;
+
+            while (i >= 0)
+            {
+                s += (i >= 0) ? (binaryNumber[i] - '0') : 0;
+
+                output = (char)(s % 2 + '0') + output;
+                s /= 2;
+                i--;
+            }
+
+            output = "0b" + output;
+
+            return output;
         }
 
         public static string ToBinaryOrNull(string num)
