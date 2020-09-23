@@ -92,6 +92,14 @@ namespace Assignment1
 
         public static string ToBinaryOrNull(string num)
         {
+            if (num.Length < 3)
+            {
+                if(!int.TryParse(num, out int result))
+                {
+                    return null;
+                }
+            }
+
             return null;
         }
 
