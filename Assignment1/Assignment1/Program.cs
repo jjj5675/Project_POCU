@@ -6,31 +6,31 @@ namespace Assignment1
     {
         static void Main(string[] args)
         {
-            Debug.Assert(BigNumberCalculator.GetOnesComplementOrNull("as89fdf0") == null);
-            Debug.Assert(BigNumberCalculator.GetOnesComplementOrNull("0xFAKEHEX") == null);
-            Debug.Assert(BigNumberCalculator.GetOnesComplementOrNull("0bFAKEBINARY") == null);
-            Debug.Assert(BigNumberCalculator.GetOnesComplementOrNull("FAKEDECIMAL") == null);
+            //Debug.Assert(BigNumberCalculator.GetOnesComplementOrNull("as89fdf0") == null);
+            //Debug.Assert(BigNumberCalculator.GetOnesComplementOrNull("0xFAKEHEX") == null);
+            //Debug.Assert(BigNumberCalculator.GetOnesComplementOrNull("0bFAKEBINARY") == null);
+            //Debug.Assert(BigNumberCalculator.GetOnesComplementOrNull("FAKEDECIMAL") == null);
 
-            Debug.Assert(BigNumberCalculator.GetOnesComplementOrNull("0x") == null);
-            Debug.Assert(BigNumberCalculator.GetOnesComplementOrNull("0b") == null);
-            Debug.Assert(BigNumberCalculator.GetOnesComplementOrNull("    ") == null);
-            Debug.Assert(BigNumberCalculator.GetOnesComplementOrNull("") == null);
-            Debug.Assert(BigNumberCalculator.GetOnesComplementOrNull("-") == null);
+            //Debug.Assert(BigNumberCalculator.GetOnesComplementOrNull("0x") == null);
+            //Debug.Assert(BigNumberCalculator.GetOnesComplementOrNull("0b") == null);
+            //Debug.Assert(BigNumberCalculator.GetOnesComplementOrNull("    ") == null);
+            //Debug.Assert(BigNumberCalculator.GetOnesComplementOrNull("") == null);
+            //Debug.Assert(BigNumberCalculator.GetOnesComplementOrNull("-") == null);
 
-            Debug.Assert(BigNumberCalculator.GetOnesComplementOrNull("-10") == null);
-            Debug.Assert(BigNumberCalculator.GetOnesComplementOrNull("0xFC34") == null);
+            //Debug.Assert(BigNumberCalculator.GetOnesComplementOrNull("-10") == null);
+            //Debug.Assert(BigNumberCalculator.GetOnesComplementOrNull("0xFC34") == null);
 
-            Debug.Assert(BigNumberCalculator.GetOnesComplementOrNull("0b0000111010110") == "0b1111000101001");
-            Debug.Assert(BigNumberCalculator.GetOnesComplementOrNull("0b1000") == "0b0111");
-            Debug.Assert(BigNumberCalculator.GetOnesComplementOrNull("0b0110101011101011100000") == "0b1001010100010100011111");
+            //Debug.Assert(BigNumberCalculator.GetOnesComplementOrNull("0b0000111010110") == "0b1111000101001");
+            //Debug.Assert(BigNumberCalculator.GetOnesComplementOrNull("0b1000") == "0b0111");
+            //Debug.Assert(BigNumberCalculator.GetOnesComplementOrNull("0b0110101011101011100000") == "0b1001010100010100011111");
 
-            Debug.Assert(BigNumberCalculator.GetTwosComplementOrNull("0b0000111010110") == "0b1111000101010");
-            Debug.Assert(BigNumberCalculator.GetTwosComplementOrNull("0b1000") == "0b1000");
+            //Debug.Assert(BigNumberCalculator.GetTwosComplementOrNull("0b0000111010110") == "0b1111000101010");
+            //Debug.Assert(BigNumberCalculator.GetTwosComplementOrNull("0b1000") == "0b1000");
 
-            //Debug.Assert(BigNumberCalculator.ToBinaryOrNull("0b00001101011") == "0b00001101011");
-            //Debug.Assert(BigNumberCalculator.ToBinaryOrNull("0x00F24") == "0b00000000111100100100");
-            //Debug.Assert(BigNumberCalculator.ToBinaryOrNull("123") == "0b01111011");
-            //Debug.Assert(BigNumberCalculator.ToBinaryOrNull("-123") == "0b10000101");
+            Debug.Assert(BigNumberCalculator.ToBinaryOrNull("0b00001101011") == "0b00001101011");
+            Debug.Assert(BigNumberCalculator.ToBinaryOrNull("0x00F24") == "0b00000000111100100100");
+            Debug.Assert(BigNumberCalculator.ToBinaryOrNull("123") == "0b01111011");
+            Debug.Assert(BigNumberCalculator.ToBinaryOrNull("-123") == "0b10000101");
 
             //Debug.Assert(BigNumberCalculator.ToDecimalOrNull("-144") == "-144");
             //Debug.Assert(BigNumberCalculator.ToDecimalOrNull("0x443FF") == "279551");
