@@ -1,4 +1,6 @@
-﻿namespace Assignment1
+﻿using System.Globalization;
+
+namespace Assignment1
 {
     public class BigNumberCalculator
     {
@@ -88,6 +90,84 @@
 
         public static string ToBinaryOrNull(string num)
         {
+            if (num.Length > 1)
+            {
+                if (num[0] == '0')
+                {
+                    if (num[1] != 'b' && num[1] != 'x')
+                    {
+                        return null;
+                    }
+                }
+                else if (num[0] == '-')
+                {
+                    string decimalNum = "123456789";
+                    if (!decimalNum.Contains(num[1]))
+                    {
+                        return null;
+                    }
+                }
+                else if (num[0] == '+')
+                {
+                    return null;
+                }
+            }
+            else if (num.Length == 1 && num[0] == '0')
+            {
+                return "0b0";
+            }
+            else
+            {
+                return null;
+            }
+
+            if (num[1] == 'b')
+            {
+                char[] vs1 = num.ToCharArray(2, num.Length - 2);
+
+                if (vs1.Length == 0)
+                {
+                    return null;
+                }
+
+                foreach (var b in vs1)
+                {
+                    if (b != '0' && b != '1')
+                    {
+                        return null;
+                    }
+                }
+            }
+            else if (num[1] == 'x')
+            {
+                char[] vs1 = num.ToCharArray(2, num.Length - 2);
+
+                if (vs1.Length == 0)
+                {
+                    return null;
+                }
+
+                string hexNum = "0123456789abcdefABCDEF";
+
+                foreach (var h in vs1)
+                {
+                    if (!hexNum.Contains(h))
+                    {
+                        return null;
+                    }
+                }
+            }
+
+            string numberCompare = "0123456789abcdefABCDEF+-";
+
+            foreach (var c in num)
+            {
+                if (!numberCompare.Contains(c))
+                {
+                    return null;
+                }
+            }
+
             if (num.Contains("0b"))
             {
                 return num;
@@ -141,7 +221,7 @@
                 string output = string.Empty;
                 int value = System.Math.Abs(result);
 
-                while(value > 0)
+                while (value > 0)
                 {
                     output = (value % 2) + output;
                     value /= 2;
@@ -149,7 +229,7 @@
 
                 output = "0b0" + output;
 
-                if(result < 0)
+                if (result < 0)
                 {
                     return GetTwosComplementOrNull(output);
                 }
