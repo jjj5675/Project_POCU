@@ -221,85 +221,108 @@ namespace Assignment1
 
                 return output;
             }
-            else
+            else if (int.TryParse(num, out int result))
             {
-                char[] data;
-
-                if (num[0] != '-')
-                {
-                    data = num.ToCharArray();
-                }
-                else
-                {
-                    data = num.ToCharArray(1, num.Length - 1);
-                }
-
                 string output = string.Empty;
-                string quotient = string.Empty;
-                int value = 0;
-                int powerOfTen = 10;
-                int i = 0;
+                int value = System.Math.Abs(result);
 
-                do
+                while (value > 0)
                 {
-                    if (value < 2)
-                    {
-                        if (data.Length - 1 < i)
-                        {
-                            if (quotient.Length == 1 && quotient[0] == '1')
-                            {
-                                output = value + output;
-                                output = quotient[0] + output;
-                                break;
-                            }
-
-                            if (value == 1 && data[data.Length - 1] == '1' && ((data[data.Length - 2] - '0') % 2) == 0)
-                            {
-                                quotient = quotient + (value / 2);
-                                value %= 2;
-                            }
-
-                            if (quotient.Length != 0)
-                            {
-                                data.Initialize();
-                                data = quotient.ToCharArray();
-                                quotient = string.Empty;
-                                output = value + output;
-                                value = i = 0;
-                            }
-                        }
-
-                        if (value == 0 && data[i] == '0')
-                        {
-                            quotient = quotient + '0';
-                            i++;
-                            continue;
-                        }
-
-                        if (quotient.Length < i)
-                        {
-                            quotient = quotient + '0';
-                        }
-                        value *= powerOfTen;
-                        value += data[i] - '0';
-                        i++;
-                        continue;
-                    }
-
-                    quotient = quotient + (value / 2);
-                    value %= 2;
-
-                } while (true);
+                    output = (value % 2) + output;
+                    value /= 2;
+                }
 
                 output = "0b0" + output;
 
-                if (num[0] == '-')
+                if (result < 0)
                 {
                     return GetTwosComplementOrNull(output);
                 }
 
                 return output;
             }
+
+            return null;
+
+            //else
+            //{
+            //    char[] data;
+
+            //    if (num[0] != '-')
+            //    {
+            //        data = num.ToCharArray();
+            //    }
+            //    else
+            //    {
+            //        data = num.ToCharArray(1, num.Length - 1);
+            //    }
+
+            //    string output = string.Empty;
+            //    string quotient = string.Empty;
+            //    int value = 0;
+            //    int powerOfTen = 10;
+            //    int i = 0;
+
+            //    do
+            //    {
+            //        if (value < 2)
+            //        {
+            //            if (data.Length - 1 < i)
+            //            {
+            //                if (quotient.Length == 1 && quotient[0] == '1')
+            //                {
+            //                    output = value + output;
+            //                    output = quotient[0] + output;
+            //                    break;
+            //                }
+
+            //                if (value == 1 && data[data.Length - 1] == '1' && ((data[data.Length - 2] - '0') % 2) == 0)
+            //                {
+            //                    quotient = quotient + (value / 2);
+            //                    value %= 2;
+            //                }
+
+            //                if (quotient.Length != 0)
+            //                {
+            //                    data.Initialize();
+            //                    data = quotient.ToCharArray();
+            //                    quotient = string.Empty;
+            //                    output = value + output;
+            //                    value = i = 0;
+            //                }
+            //            }
+
+            //            if (value == 0 && data[i] == '0')
+            //            {
+            //                quotient = quotient + '0';
+            //                i++;
+            //                continue;
+            //            }
+
+            //            if (quotient.Length < i)
+            //            {
+            //                quotient = quotient + '0';
+            //            }
+            //            value *= powerOfTen;
+            //            value += data[i] - '0';
+            //            i++;
+            //            continue;
+            //        }
+
+            //        quotient = quotient + (value / 2);
+            //        value %= 2;
+
+            //    } while (true);
+
+            //    output = "0b0" + output;
+
+            //    if (num[0] == '-')
+            //    {
+            //        return GetTwosComplementOrNull(output);
+            //    }
+
+            //    return output;
+            //}
         }
 
         public static string ToHexOrNull(string num)

@@ -1,0 +1,78 @@
+diff a/Assignment1/Assignment1/BigNumberCalculator.cs b/Assignment1/Assignment1/BigNumberCalculator.cs	(rejected hunks)
+@@ -88,12 +88,73 @@
+ 
+         public static string ToBinaryOrNull(string num)
+         {
+-            if (num.Length < 3)
++            if (num.Contains("0b"))
+             {
+-                if(!int.TryParse(num, out int result))
++                return num;
++            }
++            else if (num.Contains("0x"))
++            {
++                char[] numberData = num.ToCharArray(2, num.Length - 2);
++                string output = string.Empty;
++                int value = 0;
++                string remainder = string.Empty;
++
++                foreach (var c in numberData)
+                 {
+-                    return null;
++                    if (c >= '0' && c <= '9')
++                    {
++                        value = c - '0';
++                    }
++                    else if (c >= 'a' && c <= 'f')
++                    {
++                        value = 10 + c - 'a';
++                    }
++                    else if (c >= 'A' && c <= 'F')
++                    {
++                        value = 10 + c - 'A';
++                    }
++
++                    for (int i = 0; i < 4; i++)
++                    {
++                        if (value >= 2)
++                        {
++                            remainder = (value % 2) + remainder;
++                            value /= 2;
++                        }
++                        else
++                        {
++                            remainder = value + remainder;
++                            value /= 2;
++                        }
++                    }
++
++                    output = output + remainder;
++                    remainder = string.Empty;
++                }
++
++                output = "0b" + output;
++
++                return output;
++            }
++            else if (int.TryParse(num, out int result))
++            {
++                string output = string.Empty;
++                int value = System.Math.Abs(result);
++
++                while(value > 0)
++                {
++                    output = (value % 2) + output;
++                    value /= 2;
+                 }
++
++                output = "0b0" + output;
++
++                if(result < 0)
++                {
++                    return GetTwosComplementOrNull(output);
++                }
++
++                return output;
+             }
+ 
+             return null;
