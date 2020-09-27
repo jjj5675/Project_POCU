@@ -4,13 +4,13 @@ namespace Assignment1
 {
     public class BigNumberCalculator
     {
-        private int m_bitCount;
-        private EMode m_mode;
+        private int mBitCount;
+        private EMode mMode;
 
         public BigNumberCalculator(int bitCount, EMode mode)
         {
-            m_bitCount = bitCount;
-            m_mode = mode;
+            mBitCount = bitCount;
+            mMode = mode;
         }
 
         public static string GetOnesComplementOrNull(string num)
