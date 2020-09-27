@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System;
 
 namespace Assignment1
 {
@@ -6,6 +7,70 @@ namespace Assignment1
     {
         static void Main(string[] args)
         {
+            // D01_Invalid Input Format
+            //Debug.Assert(BigNumberCalculator.ToBinaryOrNull("-0") == null);
+            //Debug.Assert(BigNumberCalculator.ToBinaryOrNull("-") == null);
+            //Debug.Assert(BigNumberCalculator.ToBinaryOrNull("0101") == null);
+            //Debug.Assert(BigNumberCalculator.ToBinaryOrNull("0023") == null);
+            //Debug.Assert(BigNumberCalculator.ToBinaryOrNull("--11") == null);
+            //Debug.Assert(BigNumberCalculator.ToBinaryOrNull("00000000") == null);
+            //Debug.Assert(BigNumberCalculator.ToBinaryOrNull("+11") == null);
+            //Debug.Assert(BigNumberCalculator.ToBinaryOrNull("0b0b") == null);
+            //Debug.Assert(BigNumberCalculator.ToBinaryOrNull("0b0x") == null);
+            //Debug.Assert(BigNumberCalculator.ToBinaryOrNull("0xx0b") == null);
+            //Debug.Assert(BigNumberCalculator.ToBinaryOrNull("    ") == null);
+            //Debug.Assert(BigNumberCalculator.ToBinaryOrNull("") == null);
+            //Debug.Assert(BigNumberCalculator.ToBinaryOrNull("  24aA1  ") == null);
+            //Debug.Assert(BigNumberCalculator.ToBinaryOrNull(" 123 3VXCa  ") == null);
+            //Debug.Assert(BigNumberCalculator.ToBinaryOrNull("0bAA") == null);
+            //Debug.Assert(BigNumberCalculator.ToBinaryOrNull("0b") == null);
+            //Debug.Assert(BigNumberCalculator.ToBinaryOrNull("0x") == null);
+            //Debug.Assert(BigNumberCalculator.ToBinaryOrNull("KJDSLF:N(&#") == null);
+            //Debug.Assert(BigNumberCalculator.ToBinaryOrNull("#$@#$@#$") == null);
+            //Debug.Assert(BigNumberCalculator.ToBinaryOrNull("SER#$V@$V") == null);
+            // D03_Decimal Input : Decimal -> Binary
+            //Debug.Assert(BigNumberCalculator.ToBinaryOrNull("-3") == "0b101");
+            //Console.WriteLine(BigNumberCalculator.ToBinaryOrNull("123"));
+            Debug.Assert(BigNumberCalculator.ToBinaryOrNull("123") == "0b01111011");
+            //Console.WriteLine(BigNumberCalculator.ToBinaryOrNull("-123"));
+            Debug.Assert(BigNumberCalculator.ToBinaryOrNull("-123") == "0b10000101");
+            ////Console.WriteLine(BigNumberCalculator.ToBinaryOrNull("0"));
+            Debug.Assert(BigNumberCalculator.ToBinaryOrNull("0") == "0b0");
+            ////Console.WriteLine(BigNumberCalculator.ToBinaryOrNull("10"));
+            Debug.Assert(BigNumberCalculator.ToBinaryOrNull("10") == "0b01010");
+            ////Console.WriteLine(BigNumberCalculator.ToBinaryOrNull("100"));
+            Debug.Assert(BigNumberCalculator.ToBinaryOrNull("100") == "0b01100100");
+            ////Console.WriteLine(BigNumberCalculator.ToBinaryOrNull("1000"));
+            Debug.Assert(BigNumberCalculator.ToBinaryOrNull("1000") == "0b01111101000");
+            ////Console.WriteLine(BigNumberCalculator.ToBinaryOrNull("10000"));
+            Debug.Assert(BigNumberCalculator.ToBinaryOrNull("10000") == "0b010011100010000");
+            //Console.WriteLine(BigNumberCalculator.ToBinaryOrNull("-13579"));
+            Debug.Assert(BigNumberCalculator.ToBinaryOrNull("-13579") == "0b100101011110101");
+            //Console.WriteLine(BigNumberCalculator.ToBinaryOrNull("-"));
+            //Debug.Assert(BigNumberCalculator.ToBinaryOrNull("-135799753113579") == "0b100001000111110110100111111101001000000000010101");
+            //Console.WriteLine(BigNumberCalculator.ToBinaryOrNull("-9223372036854775808")); // long.minvalue
+            //Debug.Assert(BigNumberCalculator.ToBinaryOrNull("-9223372036854775808") == "0b1000000000000000000000000000000000000000000000000000000000000000");
+            //Console.WriteLine(BigNumberCalculator.ToBinaryOrNull("                                                 "));
+            //Debug.Assert(BigNumberCalculator.ToBinaryOrNull("-9223372036854775809") == "0b10111111111111111111111111111111111111111111111111111111111111111");
+            //Console.WriteLine(BigNumberCalculator.ToBinaryOrNull("-9223372036854775810"));
+            //Debug.Assert(BigNumberCalculator.ToBinaryOrNull("-9223372036854775810") == "0b10111111111111111111111111111111111111111111111111111111111111110");
+            //Console.WriteLine($"{BigNumberCalculator.ToBinaryOrNull(int.MaxValue.ToString())}");
+            //Console.WriteLine($"{BigNumberCalculator.ToBinaryOrNull((int.MinValue + 1).ToString())}");
+            //Console.WriteLine($"{BigNumberCalculator.ToBinaryOrNull(int.MinValue.ToString())}");
+            //Console.WriteLine(); Console.WriteLine(); Console.WriteLine(); Console.WriteLine();
+            //for (long i = -1; i < 1; ++i)
+            //{
+            //    Console.WriteLine(i);
+            //    string binary = Convert.ToString(i, 2);
+            //    binary = binary.Insert(0, "0b");
+            //    Console.WriteLine($"std : {binary}");
+            //    Console.WriteLine($"{i} : {BigNumberCalculator.ToBinaryOrNull(i.ToString())}");
+            //    long number = i - i - i;
+            //    Console.WriteLine($"{number} : {BigNumberCalculator.ToBinaryOrNull(number.ToString())}");
+            //    Console.WriteLine();
+            //}
+
+
             //Debug.Assert(BigNumberCalculator.GetOnesComplementOrNull("as89fdf0") == null);
             //Debug.Assert(BigNumberCalculator.GetOnesComplementOrNull("0xFAKEHEX") == null);
             //Debug.Assert(BigNumberCalculator.GetOnesComplementOrNull("0bFAKEBINARY") == null);
