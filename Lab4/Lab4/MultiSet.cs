@@ -24,11 +24,11 @@ namespace Lab4
             return false;
         }
 
-        public int GetMultiplicity(string element)
+        public uint GetMultiplicity(string element)
         {
             if (mSet.Contains(element))
             {
-                int count = 0;
+                uint count = 0;
                 foreach (var s in mSet)
                 {
                     if (element.Equals(s))
@@ -57,10 +57,10 @@ namespace Lab4
 
             foreach (var element in union)
             {
-                int a = this.GetMultiplicity(element);
-                int b = other.GetMultiplicity(element);
+                uint a = this.GetMultiplicity(element);
+                uint b = other.GetMultiplicity(element);
 
-                int count = Math.Max(a, b);
+                uint count = Math.Max(a, b);
 
                 while (count > 0)
                 {
@@ -80,10 +80,10 @@ namespace Lab4
 
             foreach (var element in union)
             {
-                int a = this.GetMultiplicity(element);
-                int b = other.GetMultiplicity(element);
+                uint a = this.GetMultiplicity(element);
+                uint b = other.GetMultiplicity(element);
 
-                int count = Math.Min(a, b);
+                uint count = Math.Min(a, b);
 
                 while (count > 0)
                 {
@@ -103,10 +103,10 @@ namespace Lab4
 
             foreach (var element in union)
             {
-                int a = this.GetMultiplicity(element);
-                int b = other.GetMultiplicity(element);
+                uint a = this.GetMultiplicity(element);
+                uint b = other.GetMultiplicity(element);
 
-                int count = Math.Max(a - b, 0);
+                uint count = Math.Max(a - b, 0);
 
                 while (count > 0)
                 {
