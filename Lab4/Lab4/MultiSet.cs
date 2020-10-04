@@ -11,14 +11,13 @@ namespace Lab4
         public void Add(string element)
         {
             mSet.Add(element);
-            mSet.Sort();
+            mSet.Sort((a, b) => a.CompareTo(b));
         }
 
         public bool Remove(string element)
         {
             if (mSet.Remove(element))
             {
-                mSet.Sort();
                 return true;
             }
 
@@ -32,7 +31,7 @@ namespace Lab4
                 int count = 0;
                 foreach (var s in mSet)
                 {
-                    if (element == s)
+                    if (element.Equals(s))
                     {
                         count++;
                     }
