@@ -16,6 +16,11 @@ namespace Lab4
 
         public bool Remove(string element)
         {
+            if (!mSet.Contains(element))
+            {
+                return false;
+            }
+
             if (mSet.Remove(element))
             {
                 return true;
@@ -130,7 +135,16 @@ namespace Lab4
                 }
                 else
                 {
-                    return x.mSet[0].CompareTo(y.mSet[0]);
+                    int order = x.mSet[0].CompareTo(y.mSet[0]);
+
+                    if (order == 0)
+                    {
+                        return x.mSet.Count <= y.mSet.Count ? -1 : 1;
+                    }
+                    else
+                    {
+                        return order;
+                    }
                 }
             });
 
