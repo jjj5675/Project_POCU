@@ -61,7 +61,8 @@ namespace Lab4
                 uint a = this.GetMultiplicity(element);
                 uint b = other.GetMultiplicity(element);
 
-                uint count = Math.Max(a, b);
+                //uint count = Math.Max(a, b);
+                uint count = a >= b ? a : b;
 
                 while (count > 0)
                 {
@@ -84,7 +85,8 @@ namespace Lab4
                 uint a = this.GetMultiplicity(element);
                 uint b = other.GetMultiplicity(element);
 
-                uint count = Math.Min(a, b);
+                //uint count = Math.Min(a, b);
+                uint count = a <= b ? a : b;
 
                 while (count > 0)
                 {
@@ -104,10 +106,12 @@ namespace Lab4
 
             foreach (var element in union)
             {
-                uint a = this.GetMultiplicity(element);
-                uint b = other.GetMultiplicity(element);
+                int a = (int)this.GetMultiplicity(element);
+                int b = (int)other.GetMultiplicity(element);
 
-                uint count = Math.Max(a - b, 0);
+                //uint count = Math.Max(a - b, 0);
+                int count = a - b >= 0 ? a - b : 0;
+
 
                 while (count > 0)
                 {
