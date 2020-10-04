@@ -11,33 +11,14 @@ namespace Lab4
         public void Add(string element)
         {
             mSet.Add(element);
-            //mSet.Sort();
-            MultiSetSort();
-        }
-
-        public void MultiSetSort()
-        {
-            int n = mSet.Count;
-
-            for (int i = 0; i < n - 1; ++i)
-            {
-                for (int j = i + 1; j < n; ++j)
-                {
-                    if (mSet[i].CompareTo(mSet[j]) > 0)
-                    {
-                        string temp = mSet[i];
-                        mSet[i] = mSet[j];
-                        mSet[j] = temp;
-                    }
-                }
-            }
+            mSet.Sort();
         }
 
         public bool Remove(string element)
         {
             if (mSet.Remove(element))
             {
-                MultiSetSort();
+                mSet.Sort();
                 return true;
             }
 
