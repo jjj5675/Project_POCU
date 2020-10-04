@@ -219,5 +219,10 @@ namespace Lab4
 
             return false;
         }
+
+        public override int GetHashCode()
+        {
+            return mSet.GetHashCode();
+        }
     }
 }
