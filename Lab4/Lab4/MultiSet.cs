@@ -29,7 +29,17 @@ namespace Lab4
         {
             if (mSet.Contains(element))
             {
-                return mSet.FindAll(s => s.Equals(element)).Count;
+                int count = 0;
+                foreach (var s in mSet)
+                {
+                    if (element == s)
+                    {
+                        count++;
+                    }
+                }
+
+                //return mSet.FindAll(s => s.Equals(element)).Count;
+                return count;
             }
 
             return 0;
