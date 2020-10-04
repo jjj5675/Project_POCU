@@ -112,7 +112,7 @@ namespace Lab4
         {
             List<MultiSet> powersetList = new List<MultiSet>();
 
-            FindPowerSet(ref powersetList, mSet, new bool[mSet.Count], 0, mSet.Count);
+            findPowerSet(ref powersetList, mSet, new bool[mSet.Count], 0, mSet.Count);
 
             powersetList.Sort(delegate (MultiSet x, MultiSet y)
             {
@@ -138,7 +138,7 @@ namespace Lab4
             return powersetList;
         }
 
-        private void FindPowerSet(ref List<MultiSet> powersetList, List<String> list, bool[] include, int index, int end)
+        private void findPowerSet(ref List<MultiSet> powersetList, List<String> list, bool[] include, int index, int end)
         {
             if (index >= end)
             {
@@ -161,10 +161,10 @@ namespace Lab4
             }
 
             include[index] = false;
-            FindPowerSet(ref powersetList, list, include, index + 1, end);
+            findPowerSet(ref powersetList, list, include, index + 1, end);
 
             include[index] = true;
-            FindPowerSet(ref powersetList, list, include, index + 1, end);
+            findPowerSet(ref powersetList, list, include, index + 1, end);
         }
 
         public override bool Equals(object obj)
