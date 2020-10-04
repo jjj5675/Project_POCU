@@ -4,25 +4,40 @@ using System.Linq;
 
 namespace Lab4
 {
-    public sealed class MultiSet : IEquatable<MultiSet>
+    public sealed class MultiSet : IEquatable<MultiSet>, IComparable<MultiSet>
     {
         private List<string> mSet = new List<string>();
 
         public void Add(string element)
         {
             mSet.Add(element);
-            mSet.Sort();
+            //mSet.Sort();
+            MultiSetSort();
+        }
+
+        public void MultiSetSort()
+        {
+            int n = mSet.Count;
+
+            for (int i = 0; i < n - 1; ++i)
+            {
+                for (int j = i + 1; j < n; ++j)
+                {
+                    if (mSet[i].CompareTo(mSet[j]) > 0)
+                    {
+                        string temp = mSet[i];
+                        mSet[i] = mSet[j];
+                        mSet[j] = temp;
+                    }
+                }
+            }
         }
 
         public bool Remove(string element)
         {
-            if (!mSet.Contains(element))
-            {
-                return false;
-            }
-
             if (mSet.Remove(element))
             {
+                MultiSetSort();
                 return true;
             }
 
@@ -119,37 +134,39 @@ namespace Lab4
 
             findPowerSet(ref powersetList, mSet, new bool[mSet.Count], 0, mSet.Count);
 
-            powersetList.Sort(delegate (MultiSet x, MultiSet y)
+            int count = powersetList.Count;
+
+            for (int i = 0; i < count - 1; ++i)
             {
-                if (x.mSet.Count == 0 && y.mSet.Count == 0)
+                for (int j = i + 1; j < count; ++j)
                 {
-                    return 0;
-                }
-                else if (x.mSet.Count == 0)
-                {
-                    return -1;
-                }
-                else if (y.mSet.Count == 0)
-                {
-                    return 1;
-                }
-                else
-                {
-                    int order = x.mSet[0].CompareTo(y.mSet[0]);
-
-                    if (order == 0)
+                    if (powersetList[i].CompareTo(powersetList[j]) > 0)
                     {
-                        return x.mSet.Count <= y.mSet.Count ? -1 : 1;
-                    }
-                    else
-                    {
-                        return order;
+                        var temp = powersetList[i];
+                        powersetList[i] = powersetList[j];
+                        powersetList[j] = temp;
                     }
                 }
-            });
-
+            }
 
             return powersetList;
+        }
+
+        public int CompareTo(MultiSet other)
+        {
+            if (this.mSet.Count == 0)
+            {
+                return -1;
+            }
+            else if (other.mSet.Count == 0)
+            {
+                return 1;
+            }
+
+            string compareA = string.Join("", this.mSet);
+            string compareB = string.Join("", other.mSet);
+
+            return compareA.CompareTo(compareB);
         }
 
         private void findPowerSet(ref List<MultiSet> powersetList, List<String> list, bool[] include, int index, int end)
