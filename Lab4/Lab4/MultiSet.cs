@@ -112,7 +112,6 @@ namespace Lab4
                 //uint count = Math.Max(a - b, 0);
                 int count = a - b >= 0 ? a - b : 0;
 
-
                 while (count > 0)
                 {
                     cSet.Add(element);
