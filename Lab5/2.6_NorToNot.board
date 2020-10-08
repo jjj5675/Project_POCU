@@ -25,11 +25,23 @@
   "Outputs": [
     {
       "Order": 0,
-      "ID": "fb700d20-5304-4ec7-85f0-13b0e636e502"
+      "ID": "fb700d20-5304-4ec7-85f0-13b0e636e502",
+      "InputSource": "00e99218-cfdd-4fb0-b1ce-afbacfda6d4b"
     }
   ],
-  "Gates": [],
+  "Gates": [
+    {
+      "ID": "00e99218-cfdd-4fb0-b1ce-afbacfda6d4b",
+      "Inputs": [
+        "79e0ba00-8ac1-4ac1-bd72-ec09e9888112",
+        "79e0ba00-8ac1-4ac1-bd72-ec09e9888112"
+      ],
+      "X": 424.6667,
+      "Y": 68.0000153,
+      "Type": "NOR"
+    }
+  ],
   "AllowedGateTypes": [
-      "NOR"
+    "NOR"
   ]
 }
