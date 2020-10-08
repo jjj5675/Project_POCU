@@ -4,8 +4,8 @@
     "Minor": 0
   },
   "PanCoords": {
-    "X": 0.0,
-    "Y": 0.0
+    "X": 3.33328247,
+    "Y": 180.000031
   },
   "InputCoords": {
     "X": 90.0,
@@ -16,6 +16,11 @@
       "Order": 0,
       "ID": "79e0ba00-8ac1-4ac1-bd72-ec09e9888112",
       "Value": false
+    },
+    {
+      "Order": 1,
+      "ID": "63b35db8-08ed-4762-b61d-7c89c5c9e372",
+      "Value": false
     }
   ],
   "OutputCoords": {
@@ -25,11 +30,63 @@
   "Outputs": [
     {
       "Order": 0,
-      "ID": "fb700d20-5304-4ec7-85f0-13b0e636e502"
+      "ID": "fb700d20-5304-4ec7-85f0-13b0e636e502",
+      "InputSource": "bad4ddc3-f256-444a-b9e6-28e331cbc123"
     }
   ],
-  "Gates": [],
+  "Gates": [
+    {
+      "ID": "a4da67f9-7abf-467a-9fb3-10770fb26c82",
+      "Inputs": [
+        "79e0ba00-8ac1-4ac1-bd72-ec09e9888112",
+        "79e0ba00-8ac1-4ac1-bd72-ec09e9888112"
+      ],
+      "X": 341.333374,
+      "Y": 24.6666412,
+      "Type": "NOR"
+    },
+    {
+      "ID": "0e745f34-cdd4-47cf-86ee-a4fa4a3ececb",
+      "Inputs": [
+        "63b35db8-08ed-4762-b61d-7c89c5c9e372",
+        "63b35db8-08ed-4762-b61d-7c89c5c9e372"
+      ],
+      "X": 342.000061,
+      "Y": 119.3333,
+      "Type": "NOR"
+    },
+    {
+      "ID": "6665ae8b-c7d7-4028-80a4-531f794bbbae",
+      "Inputs": [
+        "a4da67f9-7abf-467a-9fb3-10770fb26c82",
+        "0e745f34-cdd4-47cf-86ee-a4fa4a3ececb"
+      ],
+      "X": 521.3334,
+      "Y": 61.9999847,
+      "Type": "NOR"
+    },
+    {
+      "ID": "a44a50e4-0aea-482c-b53d-1cff292cea94",
+      "Inputs": [
+        "63b35db8-08ed-4762-b61d-7c89c5c9e372",
+        "79e0ba00-8ac1-4ac1-bd72-ec09e9888112"
+      ],
+      "X": 452.000061,
+      "Y": 229.333282,
+      "Type": "NOR"
+    },
+    {
+      "ID": "bad4ddc3-f256-444a-b9e6-28e331cbc123",
+      "Inputs": [
+        "6665ae8b-c7d7-4028-80a4-531f794bbbae",
+        "a44a50e4-0aea-482c-b53d-1cff292cea94"
+      ],
+      "X": 688.0001,
+      "Y": 118.666626,
+      "Type": "NOR"
+    }
+  ],
   "AllowedGateTypes": [
-      "NOR"
+    "NOR"
   ]
 }
