@@ -20,16 +20,17 @@ namespace Lab7
 
         public void ToggleFeatures(EFeatureFlags features)
         {
+            Features ^= features;
         }
 
         public void TurnOnFeatures(EFeatureFlags features)
         {
-
+            Features |= features;
         }
 
         public void TurnOffFeatures(EFeatureFlags features)
         {
-
+            Features &= ~features;
         }
     }
 }
