@@ -33,4 +33,36 @@ namespace Lab7
             Features &= ~features;
         }
     }
+
+    class FrameComparer : IEqualityComparer<Frame>
+    {
+        public bool Equals(Frame x, Frame y)
+        {
+            if (Object.ReferenceEquals(x, y))
+            {
+                return true;
+            }
+
+            if (Object.ReferenceEquals(x, null) || Object.ReferenceEquals(y, null))
+            {
+                return false;
+            }
+
+            return x.ID == y.ID && x.Name == y.Name;
+        }
+
+        public int GetHashCode(Frame obj)
+        {
+            if (Object.ReferenceEquals(obj, null))
+            {
+                return 0;
+            }
+
+            int hashFrameName = obj.Name == null ? 0 : obj.Name.GetHashCode();
+
+            int hashFrameID = obj.ID.GetHashCode();
+
+            return hashFrameName ^ hashFrameID;
+        }
+    }
 }
