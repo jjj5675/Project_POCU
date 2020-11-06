@@ -57,8 +57,7 @@ namespace Lab7
                 {
                     if ((byte)(frame.value.Features & feature.value) != 0)
                     {
-                        sortKeys[frame.index] = (int)MathF.Pow(2, features.Count - feature.index);
-                        break;
+                        sortKeys[frame.index] += (int)MathF.Pow(2, features.Count - feature.index);
                     }
                 }
             }
