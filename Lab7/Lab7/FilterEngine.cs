@@ -49,28 +49,21 @@ namespace Lab7
 
         public static List<int> GetSortKeys(List<Frame> frames, List<EFeatureFlags> features)
         {
-            List<int> sortKeys = new List<int>(frames.Count);
+            int[] sortKeys = new int[frames.Count];
 
-            for (int i = 0; i < frames.Count; i++)
+            foreach (var frame in frames.Select((value, index) => new { value, index }))
             {
-                sortKeys.Add(0);
-            }
-
-            foreach (var feature in features.Select((value, index) => new { value, index }))
-            {
-                foreach (var frame in frames.Select((value, index) => new { value, index }))
+                foreach (var feature in features.Select((value, index) => new { value, index }))
                 {
                     if ((byte)(frame.value.Features & feature.value) != 0)
                     {
-                        if (sortKeys[frame.index] < features.Count - feature.index)
-                        {
-                            sortKeys[frame.index] = features.Count - feature.index;
-                        }
+                        sortKeys[frame.index] = (int)MathF.Pow(2, features.Count - feature.index);
+                        break;
                     }
                 }
             }
 
-            return sortKeys;
+            return sortKeys.ToList();
         }
     }
 }
