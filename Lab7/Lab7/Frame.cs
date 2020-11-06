@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Lab7
 {
@@ -38,12 +37,12 @@ namespace Lab7
     {
         public bool Equals(Frame x, Frame y)
         {
-            if (Object.ReferenceEquals(x, y))
+            if (ReferenceEquals(x, y))
             {
                 return true;
             }
 
-            if (Object.ReferenceEquals(x, null) || Object.ReferenceEquals(y, null))
+            if (x is null || y is null)
             {
                 return false;
             }
@@ -53,13 +52,12 @@ namespace Lab7
 
         public int GetHashCode(Frame obj)
         {
-            if (Object.ReferenceEquals(obj, null))
+            if (obj is null)
             {
                 return 0;
             }
 
             int hashFrameName = obj.Name == null ? 0 : obj.Name.GetHashCode();
-
             int hashFrameID = obj.ID.GetHashCode();
 
             return hashFrameName ^ hashFrameID;

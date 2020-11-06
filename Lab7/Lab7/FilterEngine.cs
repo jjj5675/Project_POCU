@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Lab7
 {
@@ -9,13 +8,11 @@ namespace Lab7
     {
         public static List<Frame> FilterFrames(List<Frame> frames, EFeatureFlags features)
         {
-            byte flags;
             List<Frame> filteredFrames = new List<Frame>();
 
             foreach (var frame in frames)
             {
-                flags = (byte)(frame.Features & features);
-                if (flags != 0)
+                if ((byte)(frame.Features & features) != 0)
                 {
                     filteredFrames.Add(frame);
                 }
@@ -26,13 +23,11 @@ namespace Lab7
 
         public static List<Frame> FilterOutFrames(List<Frame> frames, EFeatureFlags features)
         {
-            byte flags;
             List<Frame> filteredFrames = new List<Frame>();
 
             foreach (var frame in frames)
             {
-                flags = (byte)(frame.Features & features);
-                if (flags == 0)
+                if ((byte)(frame.Features & features) == 0)
                 {
                     filteredFrames.Add(frame);
                 }
