@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Lab7
 {
-    class Frame
+    public class Frame
     {
         public EFeatureFlags Features { get; private set; }
         public uint ID { get; private set; }
